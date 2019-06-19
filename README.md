@@ -6,7 +6,7 @@ After creating a repo the script pulls it into Projects directory.
 
 ### Set up
 
-- create a file called .cc_config inside of the repo directory
+- create a file called ```.cc_config``` inside of the repo directory
 - add your Github OAuth token and username to the file, each in it's own row, like so:
 
 ```
