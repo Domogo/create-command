@@ -1,5 +1,5 @@
 # create-command
-Shell script that automates project creation. Creates project dir locally and repo on github.
+A script that creates a repository using the GitHub API then clones it into your Projects directory.
 
 The script uses curl to access GitHub via it's API. It takes in a repository name as an argument and uses it to create a repo on GitHub.
 After creating a repo the script pulls it into Projects directory.
