@@ -6,20 +6,26 @@ After creating a repo the script pulls it into Projects directory.
 
 ### Set up
 
-- create a file called ```.cc_config``` inside of the repo directory
+- Create a file called ```.cc_config``` inside of the repo directory
 - add your Github OAuth token and username to the file, separated by the ```;``` delimiter, like so:
 
 ```
     YOUR_TOKEN_HERE;YOUR_USERNAME_HERE
 ```
 
-- source the script so you can use it:
+- Source the script so you can use it:
  ```
     source /path/to/.create_command.sh
  ```
  
- - using the script:
+ - Using the script:
  
  ```
     create <repo_name>
+ ```
+ 
+ - (Optional) you can ```source``` the  script inside your ```.bash.rc``` so you don't have to do it manually:
+ 
+ ```
+    source path/to/your/script
  ```
