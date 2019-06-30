@@ -47,4 +47,5 @@ Creates a repository on GitHub and locally inside your Projects folder.
  ``` git push -u origin master ```
  
  - Usage:
+ 
  Use ``` ginit ``` inside the root of your project
