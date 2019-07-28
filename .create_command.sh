@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function create() {
+    # create an empty repository on your local machine and GitHub
     repo_name=$1
     cd
     cd Projects/
@@ -18,6 +19,7 @@ function create() {
 }
 
 function ginit() {
+    # push your project to GitHub
     repo_name=${PWD##*/}
     # get authkey and username from .cc_config
     v=$(cat $HOME/Projects/create-command/.cc_config)
@@ -33,4 +35,16 @@ function ginit() {
     git commit -m "Initial commit"
     git remote add origin git@github.com:$username/${repo_name}.git
     git push -u origin master
+}
+
+function gdelete() {
+    # From your repo directory remove repo from GitHub
+    repo_name=${PWD##*/}
+    # get authkey and username from .cc_config
+    v=$(cat $HOME/Projects/create-command/.cc_config)
+    authkey="$(echo $v | cut -d';' -f1)"
+    username="$(echo $v | cut -d';' -f2)"
+
+    # delete a github repo
+    curl -H "Content-Type: application/json" -H "Authorization: Bearer ${authkey}" -X DELETE https://api.github.com/repos/${username}/${repo_name}
 }
