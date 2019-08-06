@@ -48,3 +48,14 @@ function gdelete() {
     # delete a github repo
     curl -H "Content-Type: application/json" -H "Authorization: Bearer ${authkey}" -X DELETE https://api.github.com/repos/${username}/${repo_name}
 }
+
+function rl() {
+    # list repositories
+    # get authkey and username from .cc_config
+    v=$(cat $HOME/Projects/create-command/.cc_config)
+    authkey="$(echo $v | cut -d';' -f1)"
+    username="$(echo $v | cut -d';' -f2)"
+
+    # list all GitHub repositories
+    curl -H "Content-Type: application/json" -H "Authorization: Bearer ${authkey}" -X GET https://api.github.com/user/repos
+}
