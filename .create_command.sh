@@ -59,3 +59,9 @@ function rl() {
     # list all GitHub repositories
     curl -H "Content-Type: application/json" -H "Authorization: Bearer ${authkey}" -X GET https://api.github.com/user/repos
 }
+
+function commit() {
+    # git add . && git commit -m using the custom message
+    message=$1
+    git add . && git commit -m "${message}"
+}
