@@ -61,7 +61,8 @@ function rl() {
 }
 
 function commit() {
-    # git add . && git commit -m using the custom message
+    # get message
     message=$1
+    # add and commit using message
     git add . && git commit -m "${message}"
 }
