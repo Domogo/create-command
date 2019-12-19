@@ -22,7 +22,7 @@ function ginit() {
     # push your project to GitHub
     repo_name=${PWD##*/}
     # get authkey and username from .cc_config
-    v=$(cat $HOME/Projects/create-command/.cc_config)
+    v=$(cat $HOME/projects/create-command/.cc_config)
     authkey="$(echo $v | cut -d';' -f1)"
     username="$(echo $v | cut -d';' -f2)"
 
@@ -41,7 +41,7 @@ function gdelete() {
     # From your repo directory remove repo from GitHub
     repo_name=${PWD##*/}
     # get authkey and username from .cc_config
-    v=$(cat $HOME/Projects/create-command/.cc_config)
+    v=$(cat $HOME/projects/create-command/.cc_config)
     authkey="$(echo $v | cut -d';' -f1)"
     username="$(echo $v | cut -d';' -f2)"
 
@@ -49,10 +49,10 @@ function gdelete() {
     curl -H "Content-Type: application/json" -H "Authorization: Bearer ${authkey}" -X DELETE https://api.github.com/repos/${username}/${repo_name}
 }
 
-function rl() {
+function lr() {
     # list repositories
     # get authkey and username from .cc_config
-    v=$(cat $HOME/Projects/create-command/.cc_config)
+    v=$(cat $HOME/projects/create-command/.cc_config)
     authkey="$(echo $v | cut -d';' -f1)"
     username="$(echo $v | cut -d';' -f2)"
 
