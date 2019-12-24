@@ -36,7 +36,7 @@ Creates a repository on GitHub and locally inside your Projects folder.
     create <repo_name>
  ```
 
- ### ginit function
+### ginit function
  The function creates a repository on GitHub (using GitHub API), with the same name of your project's dir locally, creates a README.md, performs
  ```
     git init
@@ -50,7 +50,7 @@ Creates a repository on GitHub and locally inside your Projects folder.
 
  Use ``` ginit ``` inside the root of your project
 
- ### gdelete function
+### gdelete function
  Required: You local project directory to have the same name as the GitHub one.
  Deletes the GitHub repository of your project.
 
@@ -59,3 +59,6 @@ Creates a repository on GitHub and locally inside your Projects folder.
  The function reads the directory name and assumes it is the name of the repository on GitHub waiting to be deleted.
 
  Make sure your Auth key has the ``` delete repo ``` scope.
+
+### commit
+  Use commit "your commit message" instead the usual "git add . && git commit -m 'message'". Time saver.
