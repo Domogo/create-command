@@ -25,7 +25,6 @@ function ginit() {
     v=$(cat $HOME/projects/ghcli/.cc_config)
     authkey="$(echo $v | cut -d';' -f1)"
     username="$(echo $v | cut -d';' -f2)"
-
     # create a repo on github
     curl -d '{"name": "'"${repo_name}"'"}' -H "Content-Type: application/json" -H "Authorization: Bearer ${authkey}" -X POST https://api.github.com/user/repos
     # init locally and push it up.
@@ -33,7 +32,8 @@ function ginit() {
     git init
     git add .
     git commit -m "Initial commit"
-    git remote add origin git@github.com:$username/${repo_name}.git
+    git remote add origin git@github.com:${username}/${repo_name}.git
+    echo git remote add origin git@github.com:${username}/${repo_name}.git
     git push -u origin master
 }
 
