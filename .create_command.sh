@@ -1,7 +1,21 @@
 #!/bin/bash
 
+function rmkdir() {
+    # push your project to GitHub
+    repo_name=${PWD##*/}
+    # get authkey and username from .cc_config
+    v=$(cat $HOME/projects/ghcli/.cc_config)
+    authkey="$(echo $v | cut -d';' -f1)"
+    username="$(echo $v | cut -d';' -f2)"
+    # create a repo on github
+    curl -d '{"name": "'"${repo_name}"'"}' -H "Content-Type: application/json" -H "Authorization: Bearer ${authkey}" -X POST https://api.github.com/user/repos
+    git init
+    git commit -m "init repo commit"
+    git remote add origin git@github.com:Domogo/targetTap.git
+}
+
 function create() {
-    # create an empty repository on your local machine and GitHub
+    # create a empty repository on your local machine and GitHub
     repo_name=$1
     cd
     cd Projects/
